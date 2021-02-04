@@ -9,7 +9,7 @@ public_app.use(express.json())
 public_app.use(express.urlencoded({ extended: true }))
 
 var Datastore = require('nedb')
-  , db = new Datastore({ filename: __dirname + '/db', autoload: true, timestampData: true })
+  , db = new Datastore({ filename: __dirname + '/db/db', autoload: true, timestampData: true })
 
 db.ensureIndex({ fieldName: 'createdAt', expireAfterSeconds: 60*60*24*31 }) // one month
 db.ensureIndex({ fieldName: 'label' })
